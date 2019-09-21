@@ -5,7 +5,7 @@ from twitch import TwitchHelix
 twitch_token  = ''
 helix = TwitchHelix(client_id=twitch_token)
 oot = 11557
-streams_id = 624369490645352459
+streams_id = 624584018549145621
 
 whitelist = ['any%', '100%', 'hundo', 'mst', 'ad', 'dungeons',
 			 'gsr', 'requirement', 'glitchless', 'restricted', 
@@ -83,18 +83,15 @@ class Twitch(commands.Cog):
 			for j in new_streams:
 				if i == j:
 					name_lower = i.lower()
-					embed = discord.Embed(title=i + ' is now live on Twitch!',
-                              description=streams[i],
+					embed = discord.Embed(title=streams[i],
+                              description="https://www.twitch.tv/%s" % (name_lower),
                               colour=0x6441A4)
-					embed.add_field(name="https://www.twitch.tv/%s" % (name_lower), value='\uFEFF') 
+					embed.set_author(name=i + ' is now live on Twitch!')
+					embed.set_thumbnail(url='https://www.twitch.tv/p/assets/uploads/glitch_474x356.png')
 					await streams_channel.send(content=None, embed=embed)
-					print(i + ': ' + streams[i])
 
-		print(self.active_streams)
-		
 		print(self.timer)
 		self.timer += 5
-		print('------')	
 
 	@twitch.before_loop
 	async def before_twitch(self):
