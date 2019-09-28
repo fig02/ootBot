@@ -75,7 +75,7 @@ advanced categories. A common downside cited about this category is mainly the a
 have to sit through. There is a tutorial in the resources section. Note that some parts are out of date, \
 especially the “Boat Skip” trick.\n\n\
 Glitchless - This category is great to start with because it focuses more on movement than anything else. \
-This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for begginers, but \
+This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for beginners, but \
 if you are okay with the length, this is another great starting point. For obvious reasons, this category \
 has a lot of cutscenes too. Join the glitchless discord for more help centered around specifically glitchless. \n\n\
 You can start with any of the other categories, these are just the most commonly suggested starting points. \

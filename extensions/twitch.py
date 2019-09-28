@@ -11,11 +11,11 @@ whitelist = ['any%', '100%', 'hundo', 'mst', 'ad', 'dungeons',
 			 'gsr', 'requirement', 'glitchless', 'restricted', 
 			 'unrestricted', 'ganonless', 'warp', 'bingo', 'snb',
 			 'esnb', 'mq', 'faster', 'speedrun', 'speedruns', 'tas',
-			 'tasing', 'research', 'timing', 'route', 'testing',
+			 'tasing', 'research', 'timing', 'route', 'practice',
 			 'ww', 'im/ww', 'nsr', 'puzzle', 'science']
 
-blacklist = ['randomizer', 'ootr', 'zootr', 'rando', 'casual',
-			 'sanity', 'keysanity', 'allsanity', 'tokensanity',
+blacklist = ['randomizer', 'randomiser', 'ootr', 'zootr', 'rando', 'casual', 'weekly',
+			 'sanity', 'keysanity', 'allsanity', 'tokensanity', 'lets', 'let\'s',
 			 '3d', '3ds', 'hunt', 'mw', 'accessible', 'seed', 'co-op']
 
 class Twitch(commands.Cog):
@@ -83,12 +83,11 @@ class Twitch(commands.Cog):
 			for j in new_streams:
 				if i == j:
 					name_lower = i.lower()
-					embed = discord.Embed(title=streams[i],
-                              description="https://www.twitch.tv/%s" % (name_lower),
-                              colour=0x6441A4)
+					embed = discord.Embed(title=streams[i], description="https://www.twitch.tv/%s" % (name_lower),colour=0x6441A4)
 					embed.set_author(name=i + ' is now live on Twitch!')
 					embed.set_thumbnail(url='https://www.twitch.tv/p/assets/uploads/glitch_474x356.png')
-					await streams_channel.send(content=None, embed=embed)
+					if timer > 0:
+						await streams_channel.send(content=None, embed=embed)
 
 		print(self.timer)
 		self.timer += 5
