@@ -16,7 +16,7 @@ class Faq(commands.Cog):
 		await ctx.send(
 'Make sure to read the gz manual so you understand \
 the tools you have available to you: \
-<https://practicerom.com/manual>')
+<https://practicerom.com/manual/>')
 
 	@commands.command()
 	async def gzemu(self, ctx):
