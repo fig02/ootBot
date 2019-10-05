@@ -10,14 +10,14 @@ class Faq(commands.Cog):
 		await ctx.send(
 'The Practice ROM can be downloaded here: \
 <https://practicerom.com/>')
-	
+
 	@commands.command()
 	async def manual(self, ctx):
 		await ctx.send(
 'Make sure to read the gz manual so you understand \
 the tools you have available to you: \
-<https://github.com/glankk/gz/blob/master/USAGE.md>')
-	
+<https://practicerom.com/manual>')
+
 	@commands.command()
 	async def gzemu(self, ctx):
 		await ctx.send(
@@ -60,7 +60,7 @@ For any Item Randomizer related questions please join this server here: https://
 	async def glitchless(self, ctx):
 		await ctx.send(
 'This server has more channels dedicated to learning glitchless categories: https://discordapp.com/invite/MeeMcZU')
-	
+
 	@commands.command()
 	async def beginner(self, ctx):
 		await ctx.send(
