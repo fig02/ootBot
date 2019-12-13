@@ -12,7 +12,7 @@ client.remove_command('help')
 
 #load custom extensions
 client.load_extension('extensions.roles')
-client.load_extension('extensions.twitch')
+#client.load_extension('extensions.twitch')
 client.load_extension('extensions.faq')
 client.load_extension('extensions.help')
 
@@ -43,5 +43,5 @@ async def on_ready():
 	print('ootBot is online')
 	print('----------------')
 
-#run	
+#run
 client.run(discord_token)

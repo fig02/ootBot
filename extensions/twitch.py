@@ -14,7 +14,7 @@ whitelist = ['any%', '100%', 'hundo', 'mst', 'ad', 'dungeons',
 			 'tasing', 'research', 'timing', 'route', 'practice',
 			 'ww', 'im/ww', 'nsr', 'puzzle', 'science']
 
-blacklist = ['randomizer', 'randomiser', 'ootr', 'zootr', 'rando', 'casual', 'weekly',
+blacklist = ['randomizer', 'randomiser', 'ootr', 'zootr', 'rando', 'ootrandomizer', 'casual', 'weekly',
 			 'sanity', 'keysanity', 'allsanity', 'tokensanity', 'lets', 'let\'s',
 			 '3d', '3ds', 'hunt', 'mw', 'accessible', 'seed', 'co-op']
 

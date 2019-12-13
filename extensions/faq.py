@@ -24,7 +24,7 @@ the tools you have available to you: \
 'To use gz (or many other rom hacks) on PJ64 you \
 need to change a couple settings.\n\
 Pause the emulator with F2 shortly after starting the game \
-or right click on the game in you games list to change settings.\n\
+or right click on the game in your games list to change settings.\n\
 Guide: <https://imgur.com/a/bCdVV>')
 
 	@commands.command()
