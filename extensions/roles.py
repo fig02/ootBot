@@ -36,7 +36,7 @@ class Roles(commands.Cog):
 				await user.add_roles(discord.utils.get(user.guild.roles, name=i))
 				response += '> ' + i + '\n'
 				if i == 'gdq':
-					response += '\nThe gdq role is a temporary role used for organizing oot related things at the event.'
+					response += 'The gdq role is a temporary role used for organizing oot related things at the event.'
 			await ctx.send(response)
 
 	@commands.command()
