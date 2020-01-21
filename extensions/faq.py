@@ -155,5 +155,9 @@ If you plan to make your own adapter, make sure it conforms to these guidelines:
 	async def move(self, ctx):
 		await ctx.send('You are in the wrong channel. Move to the correct one or Fig will be angry :rage:')
 
+	@commands.command()
+	async def debug(self, ctx):
+		await ctx.send('Pulling up the crash debugger can help us figure out what is wrong with your ACE attempt.\nEnter the following button combination on controller 1 after the yellow line appears in the top left of the screen:\n> L + R + Z\n> D-pad Up + C Down\n> C Up + D-pad Down\n> D-pad Left + C Left\n> C Right + D-pad Right\n> A + B + Start\nTake a screenshot of the first screen that appears and post it in #any-percent.')
+
 def setup(bot):
 	bot.add_cog(Faq(bot))
