@@ -5,6 +5,9 @@ class Faq(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
+	any_id     = 360645555732480000
+	any        = client.get_channel(any_id)
+
 	@commands.command()
 	async def gz(self, ctx):
 		await ctx.send(
@@ -157,7 +160,7 @@ If you plan to make your own adapter, make sure it conforms to these guidelines:
 
 	@commands.command()
 	async def debug(self, ctx):
-		await ctx.send('Pulling up the crash debugger can help us figure out what is wrong with your ACE attempt.\nEnter the following button combination on controller 1 after the yellow line appears in the top left of the screen:\n> L + R + Z\n> D-pad Up + C Down\n> C Up + D-pad Down\n> D-pad Left + C Left\n> C Right + D-pad Right\n> A + B + Start\nTake a screenshot of the first screen that appears and post it in #any-percent.')
+		await ctx.send('Pulling up the crash debugger can help us figure out what is wrong with your ACE attempt.\nEnter the following button combination on controller 1 after the yellow line appears in the top left of the screen:\n> L + R + Z\n> Dpad Up + C Down\n> C Up + Dpad Down\n> Dpad Left + C Left\n> C Right + Dpad Right\n> A + B + Start\nTake a screenshot of the first screen that appears and post it in ' + any.mention)
 
 def setup(bot):
 	bot.add_cog(Faq(bot))
