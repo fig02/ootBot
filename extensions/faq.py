@@ -31,7 +31,13 @@ Guide: <https://imgur.com/a/bCdVV>')
 	async def watches(self, ctx):
 		await ctx.send(
 'To see values from RAM in the Practice ROM, you need to use the Watches menu.\n\
-Address and flags list: <https://bthl.es/0f>')
+Address and flags list: <https://bthl.es/0f>\n\
+\n\
+Import Files - Place on your SD Card for importing:\n\
+1.0 Watches Download: https://practicerom.com/watches?version=1.0\n\
+1.1 Watches Download: https://practicerom.com/watches?version=1.1\n\
+1.2 / VC Watches Download: https://practicerom.com/watches?version=1.2\n\
+Master Quest Watches Download: https://practicerom.com/watches?version=mq')
 
 	@commands.command()
 	async def ultimate(self, ctx):
