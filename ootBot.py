@@ -43,8 +43,8 @@ async def on_member_join(member):
     memes_id = 667503596535021589
     memes = client.get_channel(memes_id)
     if name.lower() == "odara":
-        await memes.send(":middle_finger: " + member.mention)
-        await member.kick()
+        await memes.send(":middle_finger: " + member.mention + member.id)
+        await member.ban()
 #ready
 @client.event
 async def on_ready():
