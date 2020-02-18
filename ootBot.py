@@ -37,6 +37,12 @@ async def on_message(message):
 				await message.delete()
 				await discussion.send(sender.mention + ' ' + strats.mention + ' is for videos only. Discussion should happen here instead.')
 
+@client.event
+async def on_member_join(member):
+    name = member.name
+    if name.lower() == "odara":
+        await member.ban()
+        print("odara has been banned")
 #ready
 @client.event
 async def on_ready():
