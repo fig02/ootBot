@@ -37,7 +37,10 @@ Import Files - Place on your SD Card for importing:\n\
 1.0 Watches Download: https://practicerom.com/watches?version=1.0\n\
 1.1 Watches Download: https://practicerom.com/watches?version=1.1\n\
 1.2 / VC Watches Download: https://practicerom.com/watches?version=1.2\n\
-Master Quest Watches Download: https://practicerom.com/watches?version=mq')
+Gamecube NTSC-J Watches Download: https://practicerom.com/watches?version=gcj\n\
+Gamecube NTSC-U Watches Download: https://practicerom.com/watches?version=gc\n\
+Master Quest NTSC-J Watches Download: https://practicerom.com/watches?version=mqj\n\
+Master Quest NTSC-U Watches Download: https://practicerom.com/watches?version=mq')
 
 	@commands.command()
 	async def ultimate(self, ctx):
