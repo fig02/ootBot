@@ -122,7 +122,7 @@ Features include reversing the VC mapping, custom mapping options, \
 pass-through mode, gamecube trigger mode, built-in input display, and modes for different games.\n\n\
 Info: <https://electromodder.co.uk/>\n\
 Buy: Sign up for the waitlist here to purchase: <https://electromodder.co.uk/waiting_list> \n\
-Note: EM has support for a wider variety of VC titles, but that isn’t relevant for Ocarina of Time.\n\n\
+Note: EM has support for a wider variety of VC titles, but that isn’t relevant for Ocarina of Time.')
 
 	@commands.command()
 	async def inputdisplay(self, ctx):
