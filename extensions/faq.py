@@ -80,9 +80,10 @@ if you are okay with the length, this is another great starting point. For obvio
 has a lot of cutscenes too. Join the glitchless discord for more help centered around specifically glitchless. \n\n\
 Defeat Ganon (No SRM) - If you like the idea of starting out with a really short run, this is perfect. \
 It wont give you as much experience with stuff that applies to other categories, but it\'s still a \
-great starting point. People usually recommend you start with the Kakariko route which gets the bottle normally, but you can start out with GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
+great starting point. People usually recommend you start with the Kakariko route which gets the bottle normally, \
+but you can start out with GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
 You can start with any of the other categories, these are just the most commonly suggested starting points. \
-In the end you should run what you find most interesting. There are other non RTA options like Bingo as well.\n\n\')
+In the end you should run what you find most interesting. There are other non RTA options like Bingo as well.')
 
 	@commands.command()
 	async def cspointer(self, ctx):
