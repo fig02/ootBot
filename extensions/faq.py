@@ -32,15 +32,8 @@ Guide: <https://imgur.com/a/bCdVV>')
 		await ctx.send(
 'To see values from RAM in the Practice ROM, you need to use the Watches menu.\n\
 Address and flags list: <https://bthl.es/0f>\n\
-\n\
-Import Files - Place on your SD Card for importing:\n\
-1.0 Watches Download: https://practicerom.com/watches?version=1.0\n\
-1.1 Watches Download: https://practicerom.com/watches?version=1.1\n\
-1.2 / VC Watches Download: https://practicerom.com/watches?version=1.2\n\
-Gamecube NTSC-J Watches Download: https://practicerom.com/watches?version=gcj\n\
-Gamecube NTSC-U Watches Download: https://practicerom.com/watches?version=gc\n\
-Master Quest NTSC-J Watches Download: https://practicerom.com/watches?version=mqj\n\
-Master Quest NTSC-U Watches Download: https://practicerom.com/watches?version=mq')
+Import common watches to gz by placing a file on your SD card: <https://pastebin.com/C7qczFia>\n\
+')
 
 	@commands.command()
 	async def ultimate(self, ctx):
