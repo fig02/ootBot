@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 
 role_options = ['any', 'gsr', 'mst', 'ad', 'hundo',
-			   'glitchless', 'ganonless', 'noww',
-			   'bingo', 'extensions', 'mq', 'gdq']
+			   'glitchless', 'noww','bingo', 'extensions', 
+			   'mq', 'gdq', 'defeat-ganon']
 
 class Roles(commands.Cog):
 	def __init__(self, bot):
@@ -35,8 +35,6 @@ class Roles(commands.Cog):
 			for i in args:
 				await user.add_roles(discord.utils.get(user.guild.roles, name=i))
 				response += '> ' + i + '\n'
-				if i == 'gdq':
-					response += 'The gdq role is a temporary role used for organizing oot related things at the event.'
 			await ctx.send(response)
 
 	@commands.command()
@@ -65,17 +63,17 @@ class Roles(commands.Cog):
 	async def roles(self, ctx):
 		await ctx.send('''
 ```
-any        - Any%
-gsr        - Ganondorf Source Requirement
-mst        - Medallions, Stones, Trials
-ad         - All Dungeons
-hundo      - 100%
-glitchless - Glitchless
-ganonless  - Ganonless
-noww       - No Wrong Warp
-bingo      - Bingo
-extensions - Category Extensions
-mq         - Master Quest
+any           - Any%
+gsr           - Ganondorf Source Requirement
+mst           - Medallions, Stones, Trials
+ad            - All Dungeons
+hundo         - 100%
+glitchless    - Glitchless
+defeat-ganon  - Defeat Ganon
+noww          - No Wrong Warp
+bingo         - Bingo
+extensions    - Category Extensions
+mq            - Master Quest
 ```
 		''')
 

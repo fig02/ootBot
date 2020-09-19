@@ -31,7 +31,6 @@ discords:
 
 faq:
 !beginner     explanation of good categories to start with as a beginner
-!consoles     explanation of the different consoles for speedrunning
 !cspointer    explanation of cs pointers for deku ww and how to fix it
 !dekuspeed    explanation of deku ww loading zone speed
 !essadapter   explanation of what an ESS adapter is and your options for getting one
