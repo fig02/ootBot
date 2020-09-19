@@ -31,7 +31,7 @@ class Roles(commands.Cog):
 
 		#if roles are valid, give oot role/add desired roles/generate and send response
 		if is_valid:
-			#await user.add_roles(discord.utils.get(user.guild.roles, name='Ocarina of Time'))
+			await user.add_roles(discord.utils.get(user.guild.roles, name='Ocarina of Time'))
 			for i in args:
 				await user.add_roles(discord.utils.get(user.guild.roles, name=i))
 				response += '> ' + i + '\n'
