@@ -12,7 +12,7 @@ whitelist = ['any%', '100%', 'hundo', 'mst', 'ad', 'dungeons',
 			 'unrestricted', 'ganonless', 'warp', 'bingo', 'snb',
 			 'esnb', 'mq', 'faster', 'speedrun', 'speedruns', 'tas',
 			 'tasing', 'research', 'timing', 'route', 'practice',
-			 'ww', 'im/ww', 'nsr', 'puzzle', 'science']
+			 'ww', 'im/ww', 'nsr', 'puzzle', 'science', 'rta']
 
 blacklist = ['randomizer', 'randomiser', 'ootr', 'zootr', 'rando', 'ootrandomizer', 'casual', 'weekly',
 			 'sanity', 'keysanity', 'allsanity', 'tokensanity', 'lets', 'let\'s',
