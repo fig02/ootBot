@@ -71,9 +71,9 @@ GSR - This category is very commonly recommended to beginners. It involves compl
 and doing most of Forest before beating the game. The category will teach you a lot of fundamentals that will \
 carry over to more advanced categories. A common downside cited about this category is mainly the amount of \
 cutscenes you have to sit through. There is a tutorial in the resources section.\n\n\
-No Wrong Warp - This run is a great introduction to SRM. It comprises of doing Title File SRM to get a ton of items \
-and doing Age Change SRM to become adult. Within a few minutes of starting the game you can go and open the rainbow \
-bridge and beat Ganon.\n\n\
+No Wrong Warp (SRM) - This run is a good introduction to SRM. It comprises of doing LightNode SRM to gain control \
+during the title screen to become adult with a ton of items available in the game. Within a few minutes of starting \
+the game, you can go and open the rainbow bridge and beat Ganon.\n\n\
 Glitchless - This category is great to start with because it focuses more on movement than anything else. \
 This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for beginners, but \
 if you are okay with the length, this is another great starting point. For obvious reasons, this category \
@@ -132,6 +132,98 @@ Note: EM has support for a wider variety of VC titles, but that isn’t relevant
 	@commands.command()
 	async def move(self, ctx):
 		await ctx.send('You are in the wrong channel. Move to the correct one or Fig will be angry :rage:')
+
+	@commands.command(aliases=['tutorial'])
+	async def tutorials(self, ctx):
+		await ctx.send(
+'Arthur Oudini has many tutorials available for new players learning OoT speedrun tech.\n\
+https://www.youtube.com/playlist?list=PLnMbZC1SexUfrFgCJ1EEOt0fL_Uc7FVRX')
+
+	@commands.command()
+	async def hess(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to HESS.\n\
+https://www.youtube.com/watch?v=5vRIpEKEuh4')
+
+	@commands.command()
+	async def superslide(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to Superslide.\n\
+https://www.youtube.com/watch?v=L2pI5sKut7k')
+
+	@commands.command()
+	async def megasidehop(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to Mega Sidehop.\n\
+https://www.youtube.com/watch?v=0IFT1C5q_RM')
+
+	@commands.command()
+	async def megaflip(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to Mega Sidehop.\n\
+https://www.youtube.com/watch?v=F4KDPo8lXA4')
+
+	@commands.command()
+	async def groundjump(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to Ground Jump.\n\
+https://www.youtube.com/watch?v=Q1rNKWf7nPA')
+
+	@commands.command(aliases=['boatkeyskip'])
+	async def boatskip(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Arthur Oudini for learning how to Boat Skip with Chus/Nuts.\n\
+https://www.youtube.com/watch?v=b-22kK1lOKY')
+
+	@commands.command()
+	async def ganondoor(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Mikami for learning how to perform Ganondoor.\n\
+https://www.youtube.com/watch?v=0AVFdMSPHPk')
+
+	@commands.command()
+	async def voidwarp(self, ctx):
+		await ctx.send(
+'Check out this video by sockfolder on child Void Warp. The description has more details as well explaining the setup.\n\
+https://www.youtube.com/watch?v=2XGxgvXcN8g')
+
+	@commands.command()
+	async def instaclip(self, ctx):
+		await ctx.send(
+'Check out this tutorial by Zudu for learning how to Instaclip for Defeat Ganon No SRM.\n\
+https://www.youtube.com/watch?v=AwjqKm58oKI')
+
+	@commands.command(aliases=['reversebottleadventure'])
+	async def rba(self, ctx):
+		await ctx.send(
+'Check out this video explaining RBA by dannyb.\n\
+https://www.youtube.com/watch?v=lQQlbnJzxUI')
+
+	@commands.command(aliases=['bottleadventure'])
+	async def ba(self, ctx):
+		await ctx.send(
+'Check out this video explaining BA by dannyb.\n\
+https://www.youtube.com/watch?v=a2rDwV9EwVo')
+
+	@commands.command(aliases=['dot'])
+	async def dotskip(self, ctx):
+		await ctx.send(
+'There\'s various ways to perform Door of Time Skip in Ocarina of Time. Depending on what you have \
+available to you, you can pick the method you\'re most interested in. Lunge Storage is recommended for \
+beginners as it\'s generally faster than pause buffering traditional dot skip.\n\n\
+Traditional Sword/Swordless DoT Skip by Aliensqueakytoy:\n<https://www.youtube.com/watch?v=0BE2GYMD_6U>\n\
+Lunge Storage Methods:\n\
+    Fast: <https://twitter.com/sva16162/status/1472916768536809478>\n\
+    Slow: <https://www.youtube.com/watch?v=bFUdXHJTZho>\n\
+    Shieldless: <https://www.youtube.com/watch?v=JHEmlzzCUvw>')
+
+	@commands.command(aliases=['glitchexhibition','glitchshowcase'])
+	async def glitches(self, ctx):
+		await ctx.send(
+'ZFG has a wonderful showcase featuring a large number of the glitches you can perform in OoT.\n\
+https://www.youtube.com/watch?v=q2UnkvALVRs')
+
+
 
 def setup(bot):
 	bot.add_cog(Faq(bot))
