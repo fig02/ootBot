@@ -35,8 +35,10 @@ async def on_message(message):
 	if channel_id == strats_id:
 		if not url:
 			if not media:
+				embed=discord.Embed(color=sender.color, description=message.content)
+				embed.set_author(name=sender.display_name, icon_url=sender.avatar_url)
+				await discussion.send(sender.mention + ' ' + strats.mention + ' is for videos only. Discussion should happen here instead.', embed=embed)
 				await message.delete()
-				await discussion.send(sender.mention + ' ' + strats.mention + ' is for videos only. Discussion should happen here instead.')
 
 #ready
 @client.event
