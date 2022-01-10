@@ -15,6 +15,7 @@ client.load_extension('extensions.roles')
 #client.load_extension('extensions.twitch')
 client.load_extension('extensions.faq')
 client.load_extension('extensions.help')
+client.load_extension('extensions.nitrospam')
 
 #strats-and-setups link detection
 @client.event
