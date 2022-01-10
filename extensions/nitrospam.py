@@ -11,7 +11,7 @@ class SpamDetect(commands.Cog):
 	@commands.Cog.listener('on_message')
 	async def spam_detect(self, message):
 		SPAM_COUNT = 3  # message count
-		SPAM_TIME  = 10 # seconds buffer
+		SPAM_TIME  = 32 # seconds buffer
 		# ------------------------
 		watchlist    = self.watchlist
 		sender       = message.author
