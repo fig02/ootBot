@@ -1,8 +1,14 @@
+#! /bin/env python3
+
 import re
 import discord
 from discord.ext import commands
+from updater import BotConfig
+import sys
 
-discord_token = ''
+config = BotConfig()
+
+discord_token = config.get('Bot Settings', 'discord_token')
 
 #create bot
 client = commands.Bot(command_prefix = '!')
@@ -25,8 +31,8 @@ async def on_message(message):
 	channel_id    = message.channel.id
 	media         = message.attachments
 	sender        = message.author
-	strats_id     = 357309453311148032
-	discussion_id = 495387041161543690
+	strats_id     = int(config.get('Server Settings', 'strats_id'))
+	discussion_id = int(config.get('Server Settings', 'discussion_id'))
 	strats        = client.get_channel(strats_id)
 	discussion    = client.get_channel(discussion_id)
 	url           = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]\
@@ -45,6 +51,9 @@ async def on_message(message):
 async def on_ready():
 	print('ootBot is online')
 	print('----------------')
+
+#update
+config.create_update_timer(client)
 
 #run
 client.run(discord_token)
