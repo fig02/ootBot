@@ -1,2 +1,4 @@
 *.txt
 /extensions/__pycache__/
+./config.txt
+/__pycache__/
