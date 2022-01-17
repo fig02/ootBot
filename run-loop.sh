@@ -1,5 +1,8 @@
 #!/bin/bash
+
+trap "echo Exited!; exit;" SIGINT
+
 while :
 do
-	python ./ootBot.py
+	python3 ./ootBot.py
 done
