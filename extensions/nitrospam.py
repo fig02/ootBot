@@ -51,8 +51,9 @@ class SpamDetect(commands.Cog):
 				# report the incident to the mods channel
 				await reporting.send(f"Possible spammer detected: {sender.mention}. Removed messages:")
 				# relay the deleted messages to confirm it was spam, then delete them
+				http_re = re.compile(re.escape('http'), re.IGNORECASE)
 				for message in watchlist[sender]["messages"]:
-					await reporting.send(embed=discord.Embed(description=message.content))
+					await reporting.send(embed=discord.Embed(description=http_re.sub('h-t-t-p', message.content)))
 					await message.delete()
 
 			await asyncio.sleep(SPAM_TIME)
