@@ -73,7 +73,7 @@ carry over to more advanced categories. A common downside cited about this categ
 cutscenes you have to sit through. There is a tutorial in the resources section.\n\n\
 No Wrong Warp (SRM) - This run is a good introduction to SRM. It\'s comprised of doing LightNode SRM to gain control \
 during the title screen to become adult with a ton of items available in the game. Within a few minutes of starting \
-the game, you can go and open the rainbow bridge and beat Ganon.\n\n\
+the game, you\'re able to go and open the rainbow bridge and beat Ganon.\n\n\
 Glitchless - This category is great to start with because it focuses more on movement than anything else. \
 This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for beginners, but \
 if you are okay with the length, this is another great starting point. For obvious reasons, this category \
