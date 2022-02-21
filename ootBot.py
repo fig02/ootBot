@@ -2,9 +2,11 @@
 
 import re
 import discord
+import asyncio
+import sys
+from discord import Forbidden
 from discord.ext import commands
 from updater import BotConfig
-import sys
 
 config = BotConfig()
 
@@ -38,6 +40,7 @@ async def on_message(message):
 	url           = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]\
 		          |[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
 
+	# handling text posted in the strats channel
 	if channel_id == strats_id:
 		if not url:
 			if not media:
@@ -45,6 +48,34 @@ async def on_message(message):
 				embed.set_author(name=sender.display_name, icon_url=sender.avatar_url)
 				await discussion.send(sender.mention + ' ' + strats.mention + ' is for videos only. Discussion should happen here instead.', embed=embed)
 				await message.delete()
+				return
+
+	# handling when the extra command is invoked
+	if config.get('Extra', 'enabled') == 'y':
+		extra_prefix  = await client.get_prefix(message)
+		extra_command = config.get('Extra', 'command')
+		extra_message = config.get('Extra', 'message')
+		extra_error   = config.get('Extra', 'error')
+		if type(extra_prefix) is list:
+			extra_prefix = extra_prefix[0]
+		if message.content.startswith(f'{extra_prefix}{extra_command}'):
+			# attempt to dm the user
+			try:
+				await sender.send(content=extra_message, delete_after=30.0)
+			except Forbidden:
+				# let user know in public channel if dms are closed then delete after 10s
+				error_msg = await message.channel.send(extra_error)
+				await asyncio.sleep(10)
+				await message.delete()
+				await error_msg.delete()
+				return
+			# attempt to delete the command message that the user sent
+			try:
+				await message.delete()
+			except Forbidden:
+				# silently fail. command was likely sent via DM or bot doesn't have delete perms
+				pass
+			return
 
 #ready
 @client.event
