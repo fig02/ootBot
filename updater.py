@@ -31,6 +31,12 @@ class BotConfig:
 		self.config['GitHub'] = {
 			'is_repo': 'n'
 		}
+		self.config['Extra'] = {
+			'enabled': 'n',
+			'command': 'command_name',
+			'message': 'message to the\ninvoker here!',
+			'error': 'when dms are closed...'
+		}
 		with open('config.txt', 'w') as f: self.config.write(f)
 		self.set()
 
