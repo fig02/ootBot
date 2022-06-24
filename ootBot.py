@@ -37,8 +37,8 @@ async def on_message(message):
 	discussion_id = int(config.get('Server Settings', 'discussion_id'))
 	strats        = client.get_channel(strats_id)
 	discussion    = client.get_channel(discussion_id)
-	url           = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]\
-		          |[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message.content)
+	url_re        = r'((http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-]))'
+	url           = re.findall(url_re, message.content)
 
 	# handling text posted in the strats channel
 	if channel_id == strats_id:
@@ -49,6 +49,14 @@ async def on_message(message):
 				await discussion.send(sender.mention + ' ' + strats.mention + ' is for videos only. Discussion should happen here instead.', embed=embed)
 				await message.delete()
 				return
+
+		# valid media post, post about it in discussion for searching later
+		embed=discord.Embed(color=sender.color, description=re.sub(r'@everyone|@here', '',re.sub(url_re, '', message.content).strip()))
+		embed.set_author(name=sender.display_name, icon_url=sender.avatar_url)
+		strat_url = media[0].url if media else url[0][0]
+		embed.add_field(name="Link to video", value=strat_url, inline=False)
+		embed.set_footer(text="New video posted!")
+		await discussion.send(embed=embed)
 
 	# handling when the extra command is invoked
 	if config.get('Extra', 'enabled') == 'y':
