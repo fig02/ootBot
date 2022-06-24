@@ -220,7 +220,7 @@ Lunge Storage by KeeganCG:\n<https://www.youtube.com/watch?v=GncyV4QuJCw>')
 'ZFG has a wonderful showcase featuring a large number of the glitches you can perform in OoT.\n\
 https://www.youtube.com/watch?v=q2UnkvALVRs')
 
-	@commands.command(aliases=['palwii'])
+	@commands.command(aliases=['pal','stutter'])
 	async def palwii(self, ctx):
 		await ctx.send(
 'PAL systems natively run the game slower, even when using a region-free NTSC wad. \n\
