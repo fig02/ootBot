@@ -41,6 +41,10 @@ async def on_message(message):
 	url           = re.findall(url_re, message.content)
 
 	# handling text posted in the strats channel
+	if sender.id == client.user.id:
+		# bail if post is from the bot itself
+		return
+
 	if channel_id == strats_id:
 		if not url:
 			if not media:
@@ -56,7 +60,11 @@ async def on_message(message):
 		strat_url = media[0].url if media else url[0][0]
 		embed.add_field(name="Link to video", value=strat_url, inline=False)
 		embed.set_footer(text="New video posted!")
-		await discussion.send(embed=embed)
+		bookmark = await discussion.send(embed=embed)
+
+		# now make a link to the bookmark in the strats channel
+		embed=discord.Embed(color=sender.color, title="View discussion for this video →", url=bookmark.jump_url)
+		await strats.send(embed=embed)
 
 	# handling when the extra command is invoked
 	if config.get('Extra', 'enabled') == 'y':
