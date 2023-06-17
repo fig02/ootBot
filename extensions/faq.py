@@ -61,7 +61,8 @@ For any Item Randomizer related questions please join this server here: https://
 	@commands.command()
 	async def glitchless(self, ctx):
 		await ctx.send(
-'This server has more channels dedicated to learning glitchless categories: https://discordapp.com/invite/MeeMcZU')
+'This server has more channels dedicated to learning glitchless categories, but it is in read-only mode now: \
+https://discordapp.com/invite/MeeMcZU')
 
 	@commands.command()
 	async def beginner(self, ctx):
@@ -226,6 +227,31 @@ https://www.youtube.com/watch?v=q2UnkvALVRs')
 'PAL systems natively run the game slower, even when using a region-free NTSC wad. \n\
 You can solve this issue by using the WiiMod Lite homebrew and changing the video mode to NTSC.\n\
 Link to the homebrew: <https://github.com/RiiConnect24/Wii-Mod-Lite/releases>')
+
+	@commands.command()
+	async def navi(self, ctx):
+		await ctx.send(
+'If Navi is available, she will appear on C-Up 30 seconds after loading into an area, except for certain \
+areas like dungeons. She will stick around for 2 minutes, but after that she will expire. This happens even \
+in areas where she doesn\'t appear on C-Up. Once she expires, she won\'t come back for almost 20 minutes. You \
+can reset this timer by dying, or savewarping. If you\'re using the practice ROM, you can use the Call Navi \
+feature in the File menu to make her appear on C-Up despite her timer.')
+
+	@commands.command(aliases=['targeting','walls'])
+	async def target(self, ctx):
+		await ctx.send(
+'Targeting a wall properly will change Link\'s facing angle to perfectly face that wall. This is a very \
+fundamental part of getting a consistent starting angle for many trick setups. Walls come in two main flavors.\n\
+Walls that align perfectly to cardinal directions (exactly North, South, East or West), are \
+the easiest ones to target. If you are touching a cardinal wall and facing within 45 degrees, pressing target will \
+snap you to their angle automatically.\n\
+For any other wall, simply pressing target might work, and might not depending on your exact position. For these, \
+the only way to guarantee it to work is to have *passive* momentum into the wall when you press target. This means \
+that Link should be moving without you holding the analog stick. The fast way to do this is to hold forward into the \
+wall, then release the analog stick and press target in the couple of frames when Link is still moving. This can be \
+tricky to get used to. The easy and slow way is to simply do a neutral roll against the wall, and press target during \
+the roll.\n Some things you should never do are spam target, or hold forward while targeting. Holding forward will \
+continually make Link face forward, ruining whatever wall angle you were trying to get.')
 
 def setup(bot):
 	bot.add_cog(Faq(bot))
