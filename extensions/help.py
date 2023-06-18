@@ -35,6 +35,23 @@ faq:
 !dekuspeed    explanation of deku ww loading zone speed
 !essadapter   explanation of what an ESS adapter is and your options for getting one
 !inputdisplay explanation of your options for getting an input display
+!tutorials    link to Arthur's tutorial playlist
+!hess         link to Arthur's HESS tutorial
+!superslide   link to Arthur's superslide tutorial
+!megasidehop  link to Arthur's megasidehop tutorial
+!megaflip     link to Arthur's megaflip tutorial
+!groundjump   link to Arthur's groundjump tutorial
+!boatskip     link to Arthur's boat-key skip tutorial
+!ganondoor    link to Mikami's deku-to-collapse wrong warp tutorial
+!voidwarp     link to Sockfolder's child collapse voidwarp video
+!instaclip    link to Zudu's instaclip tutorial
+!rba          link to Dannyb's RBA explanation
+!ba           link to Dannyb's BA explanation
+!dotskip      links to Door of Time skip tutorials
+!glitches     link to ZFG's glitch exhibition
+!palwii       link to a walkthrough for getting OoT to run on PAL Wiis
+!navi         Explanation of Navi's timer
+!target       Explanation of targeting walls
 ```
 		''')
 
