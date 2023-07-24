@@ -72,14 +72,17 @@ GSR - This category is very commonly recommended to beginners. It involves compl
 and doing most of Forest before beating the game. The category will teach you a lot of fundamentals that will \
 carry over to more advanced categories. A common downside cited about this category is mainly the amount of \
 cutscenes you have to sit through. There is a tutorial in the resources section.\n\n\
-No Wrong Warp (SRM) - This run is a good introduction to SRM. It\'s comprised of doing LightNode SRM to gain control \
-during the title screen to become adult with a ton of items available in the game. Within a few minutes of starting \
-the game, you\'re able to go and open the rainbow bridge and beat Ganon.\n\n\
-Glitchless - This category is great to start with because it focuses more on movement than anything else. \
+Any% - This run is the simplest introduction to SRM, and the shortest category overall. SRM may look very \
+confusing and complicated, but it\s only hard if you have to explain it. It\'s actually very simple to perform, \
+and because the run is so short, there\'s very little you will need to learn. If being able to say you beat \
+OoT in under 5 minutes seems fun to you, then this is a great category to try. Check the pins in the Any% Q/A \
+channel for tutorials to get you started. \n\n\
+Glitchless AMQ - This category is great to start with because it focuses more on movement than anything else. \
 This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for beginners, but \
-if you are okay with the length, this is another great starting point. For obvious reasons, this category \
-has a lot of cutscenes too. Join the glitchless discord for more help centered around specifically glitchless. \n\n\
-Defeat Ganon (No SRM) - If you like the idea of starting out with a really short run, this is perfect. \
+if you are okay with the length, this is another great starting point. This category has a lot of cutscenes, \
+but also a ton of gameplay to balance it out. Just don\'t confuse it with Glitchless Any%, which is still great \
+but significantly harder! Check the glitchless routing channel pins for route docs, savestates, and other resources.\n\n\
+Defeat Ganon (No SRM) - If you like the idea of starting out with a really short run without SRM, this is perfect. \
 It wont give you as much experience with stuff that applies to other categories, but it\'s still a \
 great starting point. People usually recommend you start with the Kakariko route which gets the bottle normally, \
 but you can start out with GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
