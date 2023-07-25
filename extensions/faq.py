@@ -73,7 +73,7 @@ and doing most of Forest before beating the game. The category will teach you a 
 carry over to more advanced categories. A common downside cited about this category is mainly the amount of \
 cutscenes you have to sit through. There is a tutorial in the resources section.\n\n\
 Any% - This run is the simplest introduction to SRM, and the shortest category overall. SRM may look very \
-confusing and complicated, but it\s only hard if you have to explain it. It\'s actually very simple to perform, \
+confusing and complicated, but it\'s only hard if you have to explain it. It\'s actually very simple to perform, \
 and because the run is so short, there\'s very little you will need to learn. If being able to say you beat \
 OoT in under 5 minutes seems fun to you, then this is a great category to try. Check the pins in the Any% Q/A \
 channel for tutorials to get you started. \n\n\
