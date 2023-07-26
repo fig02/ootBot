@@ -67,27 +67,27 @@ https://discordapp.com/invite/MeeMcZU')
 	@commands.command()
 	async def beginner(self, ctx):
 		await ctx.send(
-'As a beginner you have many options to start running this game. Here are some common suggestions: \n\n\
-GSR - This category is very commonly recommended to beginners. It involves completing Shadow, Spirit, \
-and doing most of Forest before beating the game. The category will teach you a lot of fundamentals that will \
-carry over to more advanced categories. A common downside cited about this category is mainly the amount of \
-cutscenes you have to sit through. There is a tutorial in the resources section.\n\n\
-Any% - This run is the simplest introduction to SRM, and the shortest category overall. SRM may look very \
+'As a beginner you have many options to start running OoT. Here are some suggestions:\n\n\
+GSR: This category is very commonly recommended to beginners. It involves completing Shadow, Spirit, \
+and most of Forest before beating the game. It will teach you a lot of fundamentals that carry over to \
+more advanced categories. One downside often mentioned about this category is the high cutscene \
+content. There is a tutorial in the resources channel.\n\n\
+Any%: This run is the simplest introduction to SRM, and the shortest category overall. SRM may look \
 confusing and complicated, but it\'s only hard if you have to explain it. It\'s actually very simple to perform, \
-and because the run is so short, there\'s very little you will need to learn. If being able to say you beat \
+and since the run is so short, there\'s very little you need to learn. If being able to say you beat \
 OoT in under 5 minutes seems fun to you, then this is a great category to try. Check the pins in the Any% Q/A \
-channel for tutorials to get you started. \n\n\
-Glitchless AMQ - This category is great to start with because it focuses more on movement than anything else. \
-This lays the groundwork for being fast at other categories. A 4 hour run is pretty long for beginners, but \
-if you are okay with the length, this is another great starting point. This category has a lot of cutscenes, \
-but also a ton of gameplay to balance it out. Just don\'t confuse it with Glitchless Any%, which is still great \
-but significantly harder! Check the glitchless routing channel pins for route docs, savestates, and other resources.\n\n\
-Defeat Ganon (No SRM) - If you like the idea of starting out with a really short run without SRM, this is perfect. \
-It wont give you as much experience with stuff that applies to other categories, but it\'s still a \
-great starting point. People usually recommend you start with the Kakariko route which gets the bottle normally, \
-but you can start out with GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
-You can start with any of the other categories, these are just the most commonly suggested starting points. \
-In the end you should run what you find most interesting. There are other non RTA options like Bingo as well.')
+channel for tutorials.\n\n\
+Glitchless AMQ: This category is great to start with because it focuses mostly on movement, and exposes you \
+to a lot of the game, giving you good foundations for other runs. It\'s long, but if you are okay with learning a lot, \
+this is a great starting point. This category has a lot of cutscenes, but also a ton of gameplay to balance it out. \
+Don\'t confuse it with Glitchless Any%, which is still great but much harder! Check the glitchless routing \
+channel pins for route docs, savestates, and other resources.\n\n\
+Defeat Ganon (No SRM): If you want a really short run without SRM, this one is perfect. \
+You won\'t get as much experience with stuff that applies to other categories, but it\'s still a \
+great starting point. New players usually start by getting the bottle normally from Kakariko, but you can learn \
+GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
+You can start with any category, these are just the most commonly suggested ones. \
+In the end you should run what you find most interesting. There are also other non-RTA options like Bingo!')
 
 	@commands.command()
 	async def cspointer(self, ctx):
