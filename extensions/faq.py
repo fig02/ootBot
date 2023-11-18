@@ -93,7 +93,7 @@ In the end you should run what you find most interesting. There are also other n
 	async def cspointer(self, ctx):
 		await ctx.send(
 'Specific cutscenes will set a value which is very important for wrong warps called the “Cutscene Pointer”. \
-In the context of an Any% Speedrun, this value is last set by the cutscene that plays when you enter the Deku Tree.\n\
+In the context of a Defeat Ganon speedrun, this value is last set by the cutscene that plays when you enter the Deku Tree.\n\
 If for whatever reason you need to reset the game after that cutscene, your CS Pointer gets set to the value for the title \
 screen cutscene. Having this CS Pointer will mean that you will softlock after successfully performing the wrong warp.\n\
 Luckily there is an easy way to fix this. Depending on your version, you can pause in a specific area to fix the relevant \
