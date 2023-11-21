@@ -28,6 +28,7 @@ discords:
 !online       link to the OoT Online server
 !modding      link to the hylian modding server
 !glitchless   link to the glitchless server
+!soh          link to the Ship of Harkinian server
 
 faq:
 !beginner     explanation of good categories to start with as a beginner
