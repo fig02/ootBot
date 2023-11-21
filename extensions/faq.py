@@ -28,6 +28,11 @@ or right click on the game in your games list to change settings.\n\
 Guide: <https://imgur.com/a/bCdVV>')
 
 	@commands.command()
+	async def soh(self, ctx):
+		await ctx.send(
+'Join this server here for Ship of Harkinian: https://discord.com/invite/shipofharkinian')
+
+	@commands.command()
 	async def watches(self, ctx):
 		await ctx.send(
 'To see values from RAM in the Practice ROM, you need to use the Watches menu.\n\
@@ -51,7 +56,7 @@ For any Item Randomizer related questions please join this server here: https://
 	@commands.command()
 	async def online(self, ctx):
 		await ctx.send(
-'Join this server here for OoT Online: https://discordapp.com/invite/UFVY9DE')
+'Join this server here for OoT Online: https://discord.com/invite/UFVY9DE')
 
 	@commands.command()
 	async def modding(self, ctx):
