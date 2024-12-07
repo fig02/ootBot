@@ -87,10 +87,10 @@ to a lot of the game, giving you good foundations for other runs. It\'s long, bu
 this is a great starting point. This category has a lot of cutscenes, but also a ton of gameplay to balance it out. \
 Don\'t confuse it with Glitchless Any%, which is still great but much harder! Check the glitchless routing \
 channel pins for route docs, savestates, and other resources.\n\n\
-Defeat Ganon (No SRM): If you want a really short run without SRM, this one is perfect. \
-You won\'t get as much experience with stuff that applies to other categories, but it\'s still a \
-great starting point. New players usually start by getting the bottle normally from Kakariko, but you can learn \
-GIM if you are ambitious. A Kak route tutorial is in the resources channel.\n\n\
+Defeat Ganon (No SRM): If you want a short run without SRM, this one is perfect. The most \
+beginner-friendly route gets the Kakariko bottle and uses an older wrong warp from Deku Tree. While outdated, it\'s still a \
+great place to start. The fastest route, called Ganonfloor, is more advanced and uses a wrong warp from Dodongo\'s Cavern. \
+Tutorials for both routes are in the defeat-ganon Q/A channel pins!\n\n\
 You can start with any category, these are just the most commonly suggested ones. \
 In the end you should run what you find most interesting. There are also other non-RTA options like Bingo!')
 
