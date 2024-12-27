@@ -221,7 +221,7 @@ https://www.youtube.com/watch?v=a2rDwV9EwVo')
 available to you, you can pick the method you\'re most interested in. Lunge Storage is recommended for \
 beginners as it\'s generally faster than pause buffering traditional dot skip.\n\n\
 Traditional Sword/Swordless DoT Skip by Aliensqueakytoy:\n<https://www.youtube.com/watch?v=0BE2GYMD_6U>\n\
-Lunge Storage by KeganCG:\n<https://www.youtube.com/watch?v=GncyV4QuJCw>')
+Lunge Storage by KeganCG:\n<https://youtu.be/_9aco_HD24U>')
 
 	@commands.command(aliases=['glitchexhibition','glitchshowcase'])
 	async def glitches(self, ctx):
