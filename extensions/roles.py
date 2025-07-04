@@ -3,7 +3,7 @@ from discord.ext import commands
 
 role_options = ['any', 'gsr', 'mst', 'ad', 'hundo',
 			   'glitchless', 'noww','bingo', 'extensions', 
-			   'mq', 'gdq', 'defeat-ganon']
+			   'mq', 'gdq', 'defeat-ganon', 'nocturne-rta']
 
 class Roles(commands.Cog):
 	def __init__(self, bot):
