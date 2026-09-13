@@ -187,8 +187,8 @@ https://www.youtube.com/watch?v=b-22kK1lOKY')
 	@commands.command()
 	async def ganondoor(self, ctx):
 		await ctx.send(
-'Check out this tutorial by Mikami for learning how to perform Ganondoor.\n\
-https://www.youtube.com/watch?v=0AVFdMSPHPk')
+'Check out this tutorial by Torje for learning how to perform Ganondoor.\n\
+https://www.youtube.com/watch?v=EPkdaiLnZpQ')
 
 	@commands.command()
 	async def voidwarp(self, ctx):
