@@ -43,7 +43,7 @@ faq:
 !megaflip     link to Arthur's megaflip tutorial
 !groundjump   link to Arthur's groundjump tutorial
 !boatskip     link to Arthur's boat-key skip tutorial
-!ganondoor    link to Mikami's deku-to-collapse wrong warp tutorial
+!ganondoor    link to Torje's deku-to-collapse wrong warp tutorial
 !voidwarp     link to Sockfolder's child collapse voidwarp video
 !instaclip    link to Zudu's instaclip tutorial
 !rba          link to Dannyb's RBA explanation
