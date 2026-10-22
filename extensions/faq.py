@@ -5,20 +5,20 @@ class Faq(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the practice rom website")
 	async def gz(self, ctx):
 		await ctx.send(
 'The Practice ROM can be downloaded here: \
 <https://practicerom.com/>')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the practice rom manual")
 	async def manual(self, ctx):
 		await ctx.send(
 'Make sure to read the gz manual so you understand \
 the tools you have available to you: \
 <https://practicerom.com/manual/>')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to guide for enabling expansion pak in pj64")
 	async def gzemu(self, ctx):
 		await ctx.send(
 'To use gz (or many other rom hacks) on PJ64 you \
@@ -27,12 +27,12 @@ Pause the emulator with F2 shortly after starting the game \
 or right click on the game in your games list to change settings.\n\
 Guide: <https://imgur.com/a/bCdVV>')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the Ship of Harkinian server")
 	async def soh(self, ctx):
 		await ctx.send(
 'Join this server here for Ship of Harkinian: https://discord.com/invite/shipofharkinian')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the common watches spreadsheet")
 	async def watches(self, ctx):
 		await ctx.send(
 'To see values from RAM in the Practice ROM, you need to use the Watches menu.\n\
@@ -40,36 +40,36 @@ Address and flags list: <https://bthl.es/0f>\n\
 Import common watches to gz by placing a file on your SD card: <https://pastebin.com/C7qczFia>\n\
 ')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the ultimate address spreadsheet")
 	async def ultimate(self, ctx):
 		await ctx.send(
 'The ultimate spreadsheets are more comprehensive than the general sheet. There are 2 versions. \n\
 This sheet is less complete but has the other versions: <https://bthl.es/0g> \n\
 This sheet is more up to date but only has debug and 1.0: <https://bthl.es/0h>')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the randomizer server")
 	async def rando(self, ctx):
 		await ctx.send(
 'This server is for speedrunning Ocarina of Time. \n\
 For any Item Randomizer related questions please join this server here: https://discord.gg/eebmyE9')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the OoT Online server")
 	async def online(self, ctx):
 		await ctx.send(
 'Join this server here for OoT Online: https://discord.com/invite/UFVY9DE')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the hylian modding server")
 	async def modding(self, ctx):
 		await ctx.send(
 'Join this server here for OoT and MM ROM Hacking: https://discord.gg/BwekbEU')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to the glitchless server")
 	async def glitchless(self, ctx):
 		await ctx.send(
 'This server has more channels dedicated to learning glitchless categories, but it is in read-only mode now: \
 https://discordapp.com/invite/MeeMcZU')
 
-	@commands.command()
+	@commands.hybrid_command(description="explanation of good categories to start with as a beginner")
 	async def beginner(self, ctx):
 		await ctx.send(
 'As a beginner you have many options to start running OoT. Here are some suggestions:\n\n\
@@ -94,7 +94,7 @@ Tutorials for both routes are in the defeat-ganon Q/A channel pins!\n\n\
 You can start with any category, these are just the most commonly suggested ones. \
 In the end you should run what you find most interesting. There are also other non-RTA options like Bingo!')
 
-	@commands.command()
+	@commands.hybrid_command(description="explanation of cs pointers for deku ww and how to fix it")
 	async def cspointer(self, ctx):
 		await ctx.send(
 'Specific cutscenes will set a value which is very important for wrong warps called the “Cutscene Pointer”. \
@@ -110,7 +110,7 @@ After you have paused and unpaused the game in this location, the wrong warp wil
 still the title screen. \nA long explanation on the pause trick can be found here: <https://pastebin.com/WEkVWVWt>\n\
 Also note: on the Practice ROM you can go to `warps > clear cs pointer` and it will make any wrong warp work regardless of your last cutscene.')
 
-	@commands.command()
+	@commands.hybrid_command(description="explanation of deku ww loading zone speed")
 	async def dekuspeed(self, ctx):
 		await ctx.send(
 'The speed that Link will walk through doors with loading zones is dependant on how fast he entered the last loading zone. \
@@ -121,7 +121,7 @@ how fast or slow you enter it, it is the same. This means in runs you have nothi
 Gohmas room with the Practice ROM, chances are your warp speed is off and it will not work. You need to warp to Deku Tree *then* warp to \
 Gohma for your loading zone speed value to be correct.')
 
-	@commands.command()
+	@commands.hybrid_command(description="explanation of what an ESS adapter is and your options for getting one")
 	async def essadapter(self, ctx):
 		await ctx.send(
 'An ESS Adapter is a controller adapter that remaps the control stick for Wii Virtual Console. This makes the deadzone smaller, which makes \
@@ -133,88 +133,88 @@ Info: <https://electromodder.co.uk/>\n\
 Buy: Sign up for the waitlist here to purchase: <https://electromodder.co.uk/waiting_list> \n\
 Note: EM has support for a wider variety of VC titles, but that isn’t relevant for Ocarina of Time.')
 
-	@commands.command()
+	@commands.hybrid_command(description="explanation of your options for getting an input display")
 	async def inputdisplay(self, ctx):
 		await ctx.send(
 'ESS adapters come with an input display, but if you are looking for a standalone option, DM HapticNoise on discord at Zach#7557 to inquire about purchasing one.')
 
-	@commands.command()
+	@commands.hybrid_command(description="tell someone they are in the wrong channel")
 	async def move(self, ctx):
 		await ctx.send('You are in the wrong channel. Move to the correct one or Fig will be angry :rage:')
 
-	@commands.command(aliases=['tutorial'])
+	@commands.hybrid_command(description="link to Arthur's tutorial playlist", aliases=['tutorial'])
 	async def tutorials(self, ctx):
 		await ctx.send(
 'Arthur Oudini has many tutorials available for new players learning OoT speedrun tech.\n\
 https://www.youtube.com/playlist?list=PLnMbZC1SexUfrFgCJ1EEOt0fL_Uc7FVRX')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Arthur's HESS tutorial")
 	async def hess(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to HESS.\n\
 https://www.youtube.com/watch?v=5vRIpEKEuh4')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Arthur's superslide tutorial")
 	async def superslide(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to Superslide.\n\
 https://www.youtube.com/watch?v=L2pI5sKut7k')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Arthur's megasidehop tutorial")
 	async def megasidehop(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to Mega Sidehop.\n\
 https://www.youtube.com/watch?v=0IFT1C5q_RM')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Arthur's megaflip tutorial")
 	async def megaflip(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to Mega Sidehop.\n\
 https://www.youtube.com/watch?v=F4KDPo8lXA4')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Arthur's groundjump tutorial")
 	async def groundjump(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to Ground Jump.\n\
 https://www.youtube.com/watch?v=Q1rNKWf7nPA')
 
-	@commands.command(aliases=['boatkeyskip'])
+	@commands.hybrid_command(description="link to Arthur's boat-key skip tutorial", aliases=['boatkeyskip'])
 	async def boatskip(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Arthur Oudini for learning how to Boat Skip with Chus/Nuts.\n\
 https://www.youtube.com/watch?v=b-22kK1lOKY')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Torje's deku-to-collapse wrong warp tutorial")
 	async def ganondoor(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Torje for learning how to perform Ganondoor.\n\
 https://www.youtube.com/watch?v=EPkdaiLnZpQ')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Sockfolder's child collapse voidwarp video")
 	async def voidwarp(self, ctx):
 		await ctx.send(
 'Check out this video by sockfolder on child Void Warp. The description has more details as well explaining the setup.\n\
 https://www.youtube.com/watch?v=2XGxgvXcN8g')
 
-	@commands.command()
+	@commands.hybrid_command(description="link to Zudu's instaclip tutorial")
 	async def instaclip(self, ctx):
 		await ctx.send(
 'Check out this tutorial by Zudu for learning how to Instaclip for Defeat Ganon No SRM.\n\
 https://www.youtube.com/watch?v=AwjqKm58oKI')
 
-	@commands.command(aliases=['reversebottleadventure'])
+	@commands.hybrid_command(description="link to Dannyb's RBA explanation", aliases=['reversebottleadventure'])
 	async def rba(self, ctx):
 		await ctx.send(
 'Check out this video explaining RBA by dannyb.\n\
 https://www.youtube.com/watch?v=lQQlbnJzxUI')
 
-	@commands.command(aliases=['bottleadventure'])
+	@commands.hybrid_command(description="link to Dannyb's BA explanation", aliases=['bottleadventure'])
 	async def ba(self, ctx):
 		await ctx.send(
 'Check out this video explaining BA by dannyb.\n\
 https://www.youtube.com/watch?v=a2rDwV9EwVo')
 
-	@commands.command(aliases=['dot'])
+	@commands.hybrid_command(description="links to Door of Time skip tutorials", aliases=['dot'])
 	async def dotskip(self, ctx):
 		await ctx.send(
 'There\'s various ways to perform Door of Time Skip in Ocarina of Time. Depending on what you have \
@@ -223,20 +223,20 @@ beginners as it\'s generally faster than pause buffering traditional dot skip.\n
 Traditional Sword/Swordless DoT Skip by Aliensqueakytoy:\n<https://www.youtube.com/watch?v=0BE2GYMD_6U>\n\
 Lunge Storage by KeganCG:\n<https://youtu.be/_9aco_HD24U>')
 
-	@commands.command(aliases=['glitchexhibition','glitchshowcase'])
+	@commands.hybrid_command(description="link to ZFG's glitch exhibition", aliases=['glitchexhibition','glitchshowcase'])
 	async def glitches(self, ctx):
 		await ctx.send(
 'ZFG has a wonderful showcase featuring a large number of the glitches you can perform in OoT.\n\
 https://www.youtube.com/watch?v=q2UnkvALVRs')
 
-	@commands.command(aliases=['pal','stutter'])
+	@commands.hybrid_command(description="link to a walkthrough for getting OoT to run on PAL Wiis", aliases=['pal','stutter'])
 	async def palwii(self, ctx):
 		await ctx.send(
 'PAL systems natively run the game slower, even when using a region-free NTSC wad. \n\
 You can solve this issue by using the WiiMod Lite homebrew and changing the video mode to NTSC.\n\
 Link to the homebrew: <https://github.com/RiiConnect24/Wii-Mod-Lite/releases>')
 
-	@commands.command()
+	@commands.hybrid_command(description="Explanation of Navi's timer")
 	async def navi(self, ctx):
 		await ctx.send(
 'If Navi is available, she will appear on C-Up 30 seconds after loading into an area, except for certain \
@@ -245,7 +245,7 @@ in areas where she doesn\'t appear on C-Up. Once she expires, she won\'t come ba
 can reset this timer by dying, or savewarping. If you\'re using the practice ROM, you can use the Call Navi \
 feature in the File menu to make her appear on C-Up despite her timer.')
 
-	@commands.command(aliases=['targeting','walls'])
+	@commands.hybrid_command(description="Explanation of targeting walls", aliases=['targeting','walls'])
 	async def target(self, ctx):
 		await ctx.send(
 'Targeting a wall properly will change Link\'s facing angle to perfectly face that wall. This is a very \

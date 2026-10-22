@@ -1,4 +1,5 @@
 import discord
+from discord import app_commands
 from discord.ext import commands
 
 role_options = ['any', 'gsr', 'mst', 'ad', 'hundo',
@@ -9,10 +10,31 @@ class Roles(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.command()
-	async def add(self, ctx, *args):
-		args = [element.lower() for element in args] #force args to lowercase
-		user = ctx.message.author
+	async def missing_roles(self, ctx, names):
+		missing = [name for name in names if not discord.utils.get(ctx.guild.roles, name=name)]
+		if missing:
+			await ctx.send(ctx.author.mention + ' Role does not exist: `' + '`, `'.join(missing) + '`')
+		return missing
+
+	def suggest_roles(self, current, options):
+		words = current.lower().split()
+		if current.endswith(' ') or not words:
+			done, partial = words, ''
+		else:
+			done, partial = words[:-1], words[-1]
+		prefix = ' '.join(done) + (' ' if done else '')
+		return [
+			app_commands.Choice(name=prefix + role, value=prefix + role)
+			for role in options
+			if role.startswith(partial) and role not in done
+		][:25]
+
+	@commands.hybrid_command(description='add one or more roles seperated by spaces')
+	@app_commands.describe(roles='roles to add, seperated by spaces (see /roles)')
+	async def add(self, ctx, *, roles: str):
+		await ctx.defer()
+		args = [element.lower() for element in roles.split()] #force args to lowercase
+		user = ctx.author
 		is_valid = 1 #roles are valid flag
 		response = user.mention + ' has been assigned the following roles:\n'
 
@@ -29,6 +51,9 @@ class Roles(commands.Cog):
 				is_valid = 0
 				break
 
+		if is_valid and await self.missing_roles(ctx, ['Ocarina of Time'] + args):
+			return
+
 		#if roles are valid, give oot role/add desired roles/generate and send response
 		if is_valid:
 			await user.add_roles(discord.utils.get(user.guild.roles, name='Ocarina of Time'))
@@ -37,10 +62,12 @@ class Roles(commands.Cog):
 				response += '> ' + i + '\n'
 			await ctx.send(response)
 
-	@commands.command()
-	async def remove(self, ctx, *args):
-		args = [element.lower() for element in args] #force args to lowercase
-		user = ctx.message.author
+	@commands.hybrid_command(description='remove one or more roles seperated by spaces')
+	@app_commands.describe(roles='roles to remove, seperated by spaces (see /roles)')
+	async def remove(self, ctx, *, roles: str):
+		await ctx.defer()
+		args = [element.lower() for element in roles.split()] #force args to lowercase
+		user = ctx.author
 		is_valid = 1 #roles are valid flag
 		response = user.mention + ' has been removed from the following roles:\n'
 
@@ -52,6 +79,9 @@ class Roles(commands.Cog):
 				is_valid = 0
 				break
 
+		if is_valid and await self.missing_roles(ctx, args):
+			return
+
 		#if roles are valid, remove roles + generate and send response
 		if is_valid:
 			for i in args:
@@ -59,7 +89,7 @@ class Roles(commands.Cog):
 				response += '> ' + i + '\n'
 			await ctx.send(response)
 
-	@commands.command()
+	@commands.hybrid_command(description='list available roles')
 	async def roles(self, ctx):
 		await ctx.send('''
 ```
@@ -76,6 +106,15 @@ extensions    - Category Extensions
 mq            - Master Quest
 ```
 		''')
+
+	@add.autocomplete('roles')
+	async def add_autocomplete(self, interaction, current):
+		return self.suggest_roles(current, role_options)
+
+	@remove.autocomplete('roles')
+	async def remove_autocomplete(self, interaction, current):
+		owned = [role.name for role in interaction.user.roles]
+		return self.suggest_roles(current, [role for role in role_options if role in owned])
 
 async def setup(bot):
 	await bot.add_cog(Roles(bot))

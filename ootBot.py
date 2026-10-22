@@ -19,13 +19,51 @@ class OotBot(commands.Bot):
 		await self.load_extension('extensions.faq')
 		await self.load_extension('extensions.help')
 		await self.load_extension('extensions.nitrospam')
+		if config.get('Extra', 'enabled') == 'y':
+			self.add_command(make_extra_command())
+		synced = await self.tree.sync()
+		print(f'synced {len(synced)} slash commands')
 		config.create_update_timer()
 
 
+# handling when the extra command is invoked
+def make_extra_command():
+	extra_command = config.get('Extra', 'command')
+	extra_message = config.get('Extra', 'message')
+	extra_error   = config.get('Extra', 'error')
+
+	@commands.hybrid_command(name=extra_command, description='…')
+	async def extra(ctx):
+		await ctx.defer(ephemeral=True)
+		# attempt to dm the user
+		try:
+			await ctx.author.send(content=extra_message, delete_after=30.0)
+		except Forbidden:
+			if ctx.interaction:
+				await ctx.send(extra_error, ephemeral=True)
+				return
+			# let user know in public channel if dms are closed then delete after 10s
+			error_msg = await ctx.send(extra_error)
+			await asyncio.sleep(10)
+			await ctx.message.delete()
+			await error_msg.delete()
+			return
+		if ctx.interaction:
+			await ctx.send('Check your DMs!', ephemeral=True)
+			return
+		# attempt to delete the command message that the user sent
+		try:
+			await ctx.message.delete()
+		except Forbidden:
+			# silently fail. command was likely sent via DM or bot doesn't have delete perms
+			pass
+
+	return extra
+
 #create bot
 intents = discord.Intents.default()
-intents.message_content = True
-client = OotBot(command_prefix = '!', intents=intents)
+intents.message_content = False
+client = OotBot(command_prefix = commands.when_mentioned, intents=intents)
 
 #remove default help command
 client.remove_command('help')
@@ -50,7 +88,7 @@ async def on_message(message):
 		# bail if post is from the bot itself
 		return
 
-	if channel_id == strats_id:
+	if channel_id == strats_id and client.intents.message_content:
 		if not url:
 			if not media:
 				embed=discord.Embed(color=sender.color, description=re.sub(r'@everyone|@here', '',message.content))
@@ -70,33 +108,6 @@ async def on_message(message):
 		# now make a link to the bookmark in the strats channel
 		embed=discord.Embed(color=sender.color, title="View discussion for this video →", url=bookmark.jump_url)
 		await strats.send(embed=embed)
-
-	# handling when the extra command is invoked
-	if config.get('Extra', 'enabled') == 'y':
-		extra_prefix  = await client.get_prefix(message)
-		extra_command = config.get('Extra', 'command')
-		extra_message = config.get('Extra', 'message')
-		extra_error   = config.get('Extra', 'error')
-		if type(extra_prefix) is list:
-			extra_prefix = extra_prefix[0]
-		if message.content.startswith(f'{extra_prefix}{extra_command}'):
-			# attempt to dm the user
-			try:
-				await sender.send(content=extra_message, delete_after=30.0)
-			except Forbidden:
-				# let user know in public channel if dms are closed then delete after 10s
-				error_msg = await message.channel.send(extra_error)
-				await asyncio.sleep(10)
-				await message.delete()
-				await error_msg.delete()
-				return
-			# attempt to delete the command message that the user sent
-			try:
-				await message.delete()
-			except Forbidden:
-				# silently fail. command was likely sent via DM or bot doesn't have delete perms
-				pass
-			return
 
 #ready
 @client.event

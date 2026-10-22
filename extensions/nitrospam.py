@@ -7,48 +7,12 @@ class SpamDetect(commands.Cog):
 		self.bot = bot
 		self.watchlist = {}
 
-	def image_attachments(self, message):
-		return [
-			attachment
-			for attachment in message.attachments
-			if (
-				getattr(attachment, "content_type", None)
-				and attachment.content_type.startswith("image/")
-			)
-			or getattr(attachment, "width", None) is not None
-			or getattr(attachment, "height", None) is not None
-		]
-
-	def message_signature(self, message):
-		content = message.content.strip()
-		images = self.image_attachments(message)
-
-		if not content and not images:
-			return None
-
-		image_details = tuple(
-			(
-				attachment.size,
-				getattr(attachment, "width", None),
-				getattr(attachment, "height", None),
-				getattr(attachment, "content_type", None),
-			)
-			for attachment in images
+	def is_user_message(self, message):
+		return (
+			message.guild is not None
+			and not message.author.bot
+			and message.type in (discord.MessageType.default, discord.MessageType.reply)
 		)
-
-		return (content, image_details)
-
-	async def send_message_report(self, reporting, message):
-		images = self.image_attachments(message)
-		description = message.content.strip()
-
-		if images:
-			files = [await image.to_file() for image in images]
-			await reporting.send(content=description or None, files=files)
-			return
-
-		embed = discord.Embed(description=description or "[image attachment]")
-		await reporting.send(embed=embed)
 
 	@commands.Cog.listener('on_message')
 	async def spam_detect(self, message):
@@ -59,11 +23,10 @@ class SpamDetect(commands.Cog):
 		sender       = message.author
 		channel      = message.channel
 		server       = message.guild
-		reporting_id = 304724247450877953
+		reporting_id = 930478562652332082
 		reporting    = self.bot.get_channel(reporting_id)
-		signature    = self.message_signature(message)
 
-		if not signature:
+		if not self.is_user_message(message):
 			return
 
 		if sender not in watchlist:
@@ -71,41 +34,44 @@ class SpamDetect(commands.Cog):
 			watchlist[sender] = {
 				"count": 1,
 				"channels": [channel],
-				"messages": [message],
-				"signature": signature
+				"messages": [message]
 			}
-		# if the user is already being watched, check if this is the same message.
-		# posted in a new channel
-		elif signature == watchlist[sender]["signature"] and channel not in watchlist[sender]["channels"]:
+		# if the user is being watched, check if they posted again.
+		else:
+			watchlist[sender]["messages"].append(message)
+			if channel in watchlist[sender]["channels"]:
+				if watchlist[sender]["count"] >= SPAM_COUNT:
+					try:
+						await message.delete()
+					except discord.NotFound:
+						pass
+				return
 			watchlist[sender]["count"] += 1
 			watchlist[sender]["channels"].append(channel)
-			watchlist[sender]["messages"].append(message)
-		else:
-			return
 
-		# if the user has posted the same message in SPAM_COUNT different channels
+		# if the user has posted a message in SPAM_COUNT different channels
 		# within a SPAM_TIME window, treat it as spam.
 		if watchlist[sender]["count"] >= SPAM_COUNT:
 			# grant the possible spammer role to mute them.
 			spammer_role = discord.utils.get(server.roles, name="Possible Spammer")
 			await sender.add_roles(spammer_role)
-			# report the incident to the mods channel.
-			first_message = watchlist[sender]["messages"][0]
-			if self.image_attachments(first_message) and not first_message.content.strip():
-				removed_message = "Removed image spam"
-			else:
-				removed_message = "Removed messages"
-			await reporting.send(
-				f"Possible spammer detected: {sender.mention}. "
-				f"{removed_message} in {watchlist[sender]['count']} channels:"
-			)
-			await self.send_message_report(reporting, first_message)
-			# delete the spam messages after saving one copy for moderator review.
-			for msg in watchlist[sender]["messages"]:
-				try:
-					await msg.delete()
-				except discord.NotFound:
-					pass
+			try:
+				# report the incident to the mods channel.
+				if reporting:
+					channels = ", ".join(c.mention for c in watchlist[sender]["channels"])
+					await reporting.send(
+						f"Possible spammer detected: {sender.mention}. "
+						f"Removed messages in {watchlist[sender]['count']} channels: {channels}"
+					)
+				else:
+					print(f"nitrospam: reporting channel {reporting_id} not found, check reporting_id in nitrospam.py")
+			finally:
+				# delete the spam messages.
+				for msg in watchlist[sender]["messages"]:
+					try:
+						await msg.delete()
+					except discord.NotFound:
+						pass
 
 		await asyncio.sleep(SPAM_TIME)
 
