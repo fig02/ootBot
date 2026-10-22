@@ -23,7 +23,7 @@ class SpamDetect(commands.Cog):
 		sender       = message.author
 		channel      = message.channel
 		server       = message.guild
-		reporting_id = 304724247450877953
+		reporting_id = 930478562652332082
 		reporting    = self.bot.get_channel(reporting_id)
 
 		if not self.is_user_message(message):
