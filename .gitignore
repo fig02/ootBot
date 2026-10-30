@@ -1,4 +1,5 @@
 *.txt
 /extensions/__pycache__/
-./config.txt
+config.yml
 /__pycache__/
+!requirements.txt

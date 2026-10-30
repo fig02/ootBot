@@ -1,0 +1,26 @@
+# Bot access token for discord.
+# [SECURITY] These bot tokens should be treated like secrets as they allow the bot program to connect to Discord servers.
+discord_token: <DISCORD_BOT_TOKEN>
+
+# Channel IDs for the strats video channel and its discussion channel.
+# These must be numbers, like 12345.
+# To get a channel ID, turn on developer mode in Discord, right click on the channel, and select "Copy Channel ID".
+# Posts in the strats channel get a bookmark in the discussion channel, and text-only posts are moved there.
+strats_channel_id: 357309453311148032
+discussion_channel_id: 495387041161543690
+
+# When True, the bot checks GitHub every minute and, if there is an update, pulls it and exits
+# so Docker (or run-loop.sh) restarts it on the new code. Only works if the bot directory is a git clone.
+auto_update: False
+
+# An optional slash command that DMs the user a message, which deletes itself after 30 seconds.
+extra_command:
+  enabled: False
+  # Name of the command, e.g. 'download' gives /download
+  name: command_name
+  # Message sent to the user in their DMs. Keep the |- and indent every line; blank lines are fine.
+  message: |-
+    message to the
+    invoker here!
+  # Reply shown when the user's DMs are closed.
+  error: when dms are closed...
