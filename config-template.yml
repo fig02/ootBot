@@ -10,7 +10,7 @@ strats_channel_id: 357309453311148032
 discussion_channel_id: 495387041161543690
 
 # When True, the bot checks GitHub every minute and, if there is an update, pulls it and exits
-# so Docker (or run-loop.sh) restarts it on the new code. Only works if the bot directory is a git clone.
+# so Docker restarts it on the new code. Only works if the bot directory is a git clone.
 auto_update: False
 
 # An optional slash command that DMs the user a message, which deletes itself after 30 seconds.
