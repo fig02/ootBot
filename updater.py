@@ -1,4 +1,3 @@
-import configparser
 import sys
 import os.path
 
@@ -6,69 +5,47 @@ import subprocess
 
 import asyncio
 
+import yaml
+
+CONFIG_FILE = 'config.yml'
+
 class BotConfig:
 	def __init__(self):
-		self.config = configparser.ConfigParser()
 		self.update_task = None
-		self.config.read('config.txt')
-		if not self.config.sections():
+		if not os.path.exists(CONFIG_FILE):
 			# no config available
-			self.create_default()
+			print(f'{CONFIG_FILE} not found. Copy config-template.yml to {CONFIG_FILE} and fill it in.')
+			sys.exit(1)
+		with open(CONFIG_FILE) as f: self.config = yaml.safe_load(f)
 		self.print()
 
-	def get(self, section, key):
-		return self.config[section][key]
-
-	def create_default(self):
-		# make a new config
-		self.config = configparser.ConfigParser()
-		self.config['Server Settings'] = {
-			'strats_id': 357309453311148032,
-			'discussion_id': 495387041161543690
-		}
-		self.config['Bot Settings'] = {
-			'discord_token': 'REPLACE_WITH_YOUR_DISCORD_TOKEN'
-		}
-		self.config['GitHub'] = {
-			'is_repo': 'n'
-		}
-		self.config['Extra'] = {
-			'enabled': 'n',
-			'command': 'command_name',
-			'message': 'message to the\ninvoker here!',
-			'error': 'when dms are closed...'
-		}
-		with open('config.txt', 'w') as f: self.config.write(f)
-		self.set()
-
-	def set(self):
-		for section in self.config:
-			if section == "DEFAULT": continue
-			print(f'[{section}]')
-			for key in self.config[section]:
-				value = input(f'{key}? ({self.config[section][key]}):')
-				if value: 
-					self.config[section][key] = value
-		with open('config.txt', 'w') as f: self.config.write(f)
+	def __getitem__(self, key):
+		return self.config[key]
 
 	def print(self):
 		print("----------------")
 		print("|    config    |")
 		print("----------------")
-		# print out each non default section of config
-		for section in self.config:
-			if section == "DEFAULT": continue
-			print(f'[{section}]')
-			for key in self.config[section]:
-				value = self.config[section][key]
+		print(yaml.safe_dump(self._redacted(self.config), sort_keys=False, allow_unicode=True))
+
+	def _redacted(self, value):
+		if not isinstance(value, dict):
+			return value
+		redacted = {}
+		for k, v in value.items():
+			if k == 'discord_token':
 				# don't print the discord token lol
-				if key == 'discord_token':
-					value = f'{value[:12]}...'
-				print(f'{key} = {value}')
-			print('')
+				v = f'{v[:12]}...'
+			elif k == 'message':
+				# the extra command's message can contain passwords
+				v = '<hidden>'
+			else:
+				v = self._redacted(v)
+			redacted[k] = v
+		return redacted
 
 	def create_update_timer(self):
-		if (self.get('GitHub', 'is_repo') == 'y'):
+		if self['auto_update']:
 			self.update_task = asyncio.create_task(self.timer())
 
 	async def timer(self):

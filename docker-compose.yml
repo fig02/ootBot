@@ -1,0 +1,9 @@
+services:
+  ootbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ootbot
+    restart: always
+    volumes:
+      - ./:/app

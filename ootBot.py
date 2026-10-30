@@ -10,7 +10,7 @@ from updater import BotConfig
 
 config = BotConfig()
 
-discord_token = config.get('Bot Settings', 'discord_token')
+discord_token = config['discord_token']
 
 class OotBot(commands.Bot):
 	async def setup_hook(self):
@@ -19,7 +19,7 @@ class OotBot(commands.Bot):
 		await self.load_extension('extensions.faq')
 		await self.load_extension('extensions.help')
 		await self.load_extension('extensions.nitrospam')
-		if config.get('Extra', 'enabled') == 'y':
+		if config['extra_command']['enabled']:
 			self.add_command(make_extra_command())
 		synced = await self.tree.sync()
 		print(f'synced {len(synced)} slash commands')
@@ -28,9 +28,9 @@ class OotBot(commands.Bot):
 
 # handling when the extra command is invoked
 def make_extra_command():
-	extra_command = config.get('Extra', 'command')
-	extra_message = config.get('Extra', 'message')
-	extra_error   = config.get('Extra', 'error')
+	extra_command = config['extra_command']['name']
+	extra_message = config['extra_command']['message']
+	extra_error   = config['extra_command']['error']
 
 	@commands.hybrid_command(name=extra_command, description='…')
 	async def extra(ctx):
@@ -76,8 +76,8 @@ async def on_message(message):
 	channel_id    = message.channel.id
 	media         = message.attachments
 	sender        = message.author
-	strats_id     = int(config.get('Server Settings', 'strats_id'))
-	discussion_id = int(config.get('Server Settings', 'discussion_id'))
+	strats_id     = config['strats_channel_id']
+	discussion_id = config['discussion_channel_id']
 	strats        = client.get_channel(strats_id)
 	discussion    = client.get_channel(discussion_id)
 	url_re        = r'((http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-]))'
