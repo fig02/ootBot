@@ -88,7 +88,7 @@ this is a great starting point. This category has a lot of cutscenes, but also a
 Don\'t confuse it with Glitchless Any%, which is still great but much harder! Check the glitchless routing \
 channel pins for route docs, savestates, and other resources.\n\n\
 Defeat Ganon (Classic Kakariko Route): If you want a short run without SRM, this one is perfect. The route gets the
-Kakariko bottle and uses a wrong warp from Deku Tree. Tutorials for the route is in the defeat-ganon Q/A channel pins!\n\n\
+Kakariko bottle and uses a wrong warp from Deku Tree. Tutorials for the route are in the defeat-ganon Q/A channel pins!\n\n\
 You can start with any category, these are just the most commonly suggested ones. \
 In the end you should run what you find most interesting. There are also other non-RTA options like Bingo!')
 
